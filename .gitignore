@@ -1,0 +1,26 @@
+# Dependencies installed by NPM
+/node_modules
+
+# TypeScript compilation output
+/dist
+
+# Editor temporary files
+/.vscode
+/.idea
+
+# Log and backup files
+*.log
+*.bak
+
+# Jest generated files
+/coverage
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Developer-specific files
+.DS_Store
