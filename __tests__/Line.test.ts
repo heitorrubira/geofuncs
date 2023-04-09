@@ -48,6 +48,9 @@ describe('Line', () => {
     expect(line.intersectsLine(new Line(Vec2.one(), new Vec2(10, 1)))).toBe(
       false
     );
+    expect(
+      line.intersectsLine(new Line(new Vec2(15, -5), new Vec2(15, 5)))
+    ).toBe(false);
   });
 
   it('intersectsRect() should check for an intersection and not', () => {
