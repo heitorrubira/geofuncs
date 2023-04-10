@@ -77,14 +77,29 @@ export default class Rect {
     return new Rect(Vec2.zero());
   }
 
+  /**
+   * Check if this intersects a point.
+   * @param point
+   * @returns
+   */
   intersectsPoint(point: Vec2): boolean {
     return pointIntersectsRect(point, this);
   }
 
+  /**
+   * Check if this intersects a circle.
+   * @param circle
+   * @returns
+   */
   intersectsCircle(circle: Circle): boolean {
     return circleIntersectsRect(circle, this);
   }
 
+  /**
+   * Check if this intersects a rectangle.
+   * @param rect
+   * @returns
+   */
   intersectsRect(rect: Rect): boolean {
     return rectIntersectsRect(rect, this);
   }

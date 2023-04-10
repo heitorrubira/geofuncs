@@ -27,22 +27,45 @@ export default class Line {
     this.b = b;
   }
 
+  /**
+   * The lenght of the line.
+   */
   get length(): number {
     return distanceVec2(this.a, this.b);
   }
 
+  /**
+   * Check if this intersects a point.
+   * @param point
+   * @returns
+   */
   intersectsPoint(point: Vec2): boolean {
     return lineIntersectsPoint(this, point);
   }
 
+  /**
+   * Check if this intersects a circle.
+   * @param circle
+   * @returns
+   */
   intersectsCircle(circle: Circle): boolean {
     return lineIntersectsCircle(this, circle);
   }
 
+  /**
+   * Check if this intersects a line.
+   * @param line
+   * @returns
+   */
   intersectsLine(line: Line): boolean {
     return lineIntersectsLine(this, line);
   }
 
+  /**
+   * Check if this intersects a rectangle.
+   * @param rect
+   * @returns
+   */
   intersectsRect(rect: Rect): boolean {
     return lineIntersectsRect(this, rect);
   }

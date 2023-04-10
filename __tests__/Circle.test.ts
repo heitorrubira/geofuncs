@@ -7,19 +7,20 @@ describe('Circle', () => {
     const c1 = new Circle(Vec2.one(), 3);
     const c2 = Circle.zeroPosRadiusOne();
 
-    expect(c1.position.x).toBe(1);
-    expect(c1.position.y).toBe(1);
+    expect(c1.center.x).toBe(1);
+    expect(c1.center.y).toBe(1);
     expect(c1.radius).toBe(3);
 
-    expect(c2.position.x).toBe(0);
-    expect(c2.position.y).toBe(0);
+    expect(c2).toBeInstanceOf(Circle);
+    expect(c2.center.x).toBe(0);
+    expect(c2.center.y).toBe(0);
     expect(c2.radius).toBe(1);
   });
 
   it('toString() should return a valid string formated', () => {
     const circle = new Circle(Vec2.zero(), 10);
     expect(circle.toString()).toEqual(
-      '{ "position": { "x": 0, "y": 0 }, "radius": 10 }'
+      '{ "center": { "x": 0, "y": 0 }, "radius": 10 }'
     );
   });
 

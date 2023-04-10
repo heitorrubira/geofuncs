@@ -1,3 +1,5 @@
+import { distanceVec3 } from './utils';
+
 /**
  * A 3D vector class
  */
@@ -61,7 +63,7 @@ export default class Vec3 {
    * @returns
    */
   static scalar(v: Vec3, k: number): Vec3 {
-    return new Vec3(v.x * k, v.x * k, v.z * k);
+    return new Vec3(v.x * k, v.y * k, v.z * k);
   }
 
   /**
@@ -71,10 +73,7 @@ export default class Vec3 {
    * @returns
    */
   static distance(a: Vec3, b: Vec3): number {
-    const distX = b.x - a.x;
-    const distY = b.y - a.y;
-    const distZ = b.z - a.z;
-    return Math.sqrt(distX * distX + distY * distY + distZ * distZ);
+    return distanceVec3(a, b);
   }
 
   /**

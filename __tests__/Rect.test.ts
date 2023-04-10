@@ -12,6 +12,7 @@ describe('Rect', () => {
     expect(r1.width).toBe(3);
     expect(r1.height).toBe(4);
 
+    expect(r2).toBeInstanceOf(Rect);
     expect(r2.position.x).toBe(0);
     expect(r2.position.y).toBe(0);
     expect(r2.width).toBe(1);

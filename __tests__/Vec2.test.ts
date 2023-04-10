@@ -9,9 +9,11 @@ describe('Vec2', () => {
     expect(v1.x).toBe(10);
     expect(v1.y).toBe(11);
 
+    expect(v2).toBeInstanceOf(Vec2);
     expect(v2.x).toBe(0);
     expect(v2.y).toBe(0);
 
+    expect(v3).toBeInstanceOf(Vec2);
     expect(v3.x).toBe(1);
     expect(v3.y).toBe(1);
   });
