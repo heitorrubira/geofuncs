@@ -1,7 +1,7 @@
 {
-  "name": "geomatrix",
+  "name": "geofuncs",
   "version": "1.0.0",
-  "description": "The Geomatrix is a math lib that comes with function for geometry and matrix.",
+  "description": "The Geofuncs is a math lib that comes with function for basic geometry.",
   "main": "./index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -9,6 +9,10 @@
     "lint": "eslint . --ext .ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heitorrubira/geofuncs.git"
   },
   "keywords": [],
   "author": "",
