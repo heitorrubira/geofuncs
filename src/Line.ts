@@ -1,12 +1,11 @@
 import Circle from './Circle';
 import Rect from './Rect';
-// import Rect from './Rect';
 import Vec2 from './Vec2';
 import {
   lineIntersectsCircle,
   lineIntersectsPoint,
   lineIntersectsLine,
-  distanceVec2,
+  distance2D,
   lineIntersectsRect,
 } from './utils';
 
@@ -31,7 +30,7 @@ export default class Line {
    * The lenght of the line.
    */
   get length(): number {
-    return distanceVec2(this.a, this.b);
+    return distance2D(this.a, this.b);
   }
 
   /**

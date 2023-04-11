@@ -1,6 +1,6 @@
 import Circle from '../src/Circle';
-import Rect from '../src/Rect';
 import Line from '../src/Line';
+import Rect from '../src/Rect';
 import Vec2 from '../src/Vec2';
 
 describe('Line', () => {
@@ -56,7 +56,7 @@ describe('Line', () => {
   it('intersectsRect() should check for an intersection and not', () => {
     const line = new Line(Vec2.zero(), new Vec2(10, 0));
 
-    expect(line.intersectsRect(new Rect(new Vec2(5, 2), 4, 4))).toBe(true);
+    expect(line.intersectsRect(new Rect(new Vec2(5, -2), 4, 4))).toBe(true);
     expect(line.intersectsRect(new Rect(new Vec2(3, 2), 1, 2))).toBe(false);
   });
 });

@@ -1,4 +1,4 @@
-import { distanceVec2 } from './utils';
+import { distance2D, rotateAround2D } from './utils';
 
 /**
  * A 2D vector class
@@ -70,7 +70,18 @@ export default class Vec2 {
    * @returns
    */
   static distance(a: Vec2, b: Vec2): number {
-    return distanceVec2(a, b);
+    return distance2D(a, b);
+  }
+
+  /**
+   * Rotate a point around a center, returning a new Vec2 with the new position.
+   * @param center The center to rotate around
+   * @param point The point to rotate
+   * @param deg In degrees
+   * @returns
+   */
+  static rotateAround(center: Vec2, point: Vec2, deg: number): Vec2 {
+    return rotateAround2D(center, point, deg);
   }
 
   /**

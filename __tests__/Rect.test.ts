@@ -21,12 +21,10 @@ describe('Rect', () => {
 
   it('should return a valid values for getters', () => {
     const rect = new Rect(Vec2.one(), 10, 6);
-    expect(rect.bottom).toBe(4);
-    expect(rect.top).toBe(-2);
-    expect(rect.right).toBe(6);
-    expect(rect.left).toBe(-4);
-    expect(rect.x).toBe(1);
-    expect(rect.y).toBe(1);
+    expect(rect.bottom).toBe(7);
+    expect(rect.top).toBe(1);
+    expect(rect.right).toBe(11);
+    expect(rect.left).toBe(1);
     expect(rect.area).toBe(60);
   });
 
@@ -46,7 +44,7 @@ describe('Rect', () => {
   it('intersectsCircle() should check for an intersection and not', () => {
     const rect = new Rect(Vec2.zero(), 5, 4);
     expect(rect.intersectsCircle(new Circle(new Vec2(3, 3), 2))).toBe(true);
-    expect(rect.intersectsCircle(new Circle(new Vec2(3, 3), 1))).toBe(false);
+    expect(rect.intersectsCircle(new Circle(new Vec2(3, -3), 1))).toBe(false);
   });
 
   it('intersectsRect() should check for an intersection and not', () => {

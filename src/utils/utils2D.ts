@@ -3,7 +3,23 @@ import Line from '../Line';
 import Rect from '../Rect';
 import Vec2 from '../Vec2';
 
-export const distanceVec2 = (a: Vec2, b: Vec2): number => {
+export const rotateAround2D = (
+  center: Vec2,
+  point: Vec2,
+  deg: number
+): Vec2 => {
+  const dx = point.x - center.x;
+  const dy = point.y - center.y;
+
+  const theta = (deg * Math.PI) / 180;
+
+  const x = dx * Math.cos(theta) - dy * Math.sin(theta) + center.x;
+  const y = dx * Math.sin(theta) + dy * Math.cos(theta) + center.y;
+
+  return new Vec2(x, y);
+};
+
+export const distance2D = (a: Vec2, b: Vec2): number => {
   const distX = b.x - a.x;
   const distY = b.y - a.y;
   return Math.sqrt(distX * distX + distY * distY);
@@ -85,7 +101,7 @@ export const lineIntersectsCircle = (line: Line, circle: Circle): boolean => {
 };
 
 export const pointIntersectsCircle = (point: Vec2, circle: Circle): boolean => {
-  const distance = distanceVec2(point, circle.center);
+  const distance = distance2D(point, circle.center);
   return distance < circle.radius;
 };
 
@@ -99,7 +115,7 @@ export const pointIntersectsRect = (point: Vec2, rect: Rect): boolean => {
 };
 
 export const circleIntersectsCircle = (a: Circle, b: Circle): boolean => {
-  const doubleDist = distanceVec2(a.center, b.center);
+  const doubleDist = distance2D(a.center, b.center);
   const doubleRadius = a.radius + b.radius;
   return doubleDist < doubleRadius;
 };
@@ -116,6 +132,6 @@ export const rectIntersectsRect = (a: Rect, b: Rect): boolean => {
 export const circleIntersectsRect = (circle: Circle, rect: Rect): boolean => {
   const nearX = Math.max(rect.left, Math.min(circle.center.x, rect.right));
   const nearY = Math.max(rect.top, Math.min(circle.center.y, rect.bottom));
-  const distance = distanceVec2(new Vec2(nearX, nearY), circle.center);
+  const distance = distance2D(new Vec2(nearX, nearY), circle.center);
   return distance < circle.radius;
 };

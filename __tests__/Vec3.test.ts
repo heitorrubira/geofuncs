@@ -50,4 +50,22 @@ describe('Vec3', () => {
     const result = Vec3.distance(Vec3.zero(), new Vec3(3, 4, 5));
     expect(result).toBe(7.0710678118654755);
   });
+
+  it('rotae() shoould return a valid distance between two Vec3', () => {
+    const result = Vec3.distance(Vec3.zero(), new Vec3(3, 4, 5));
+    expect(result).toBe(7.0710678118654755);
+  });
+
+  it('rotateXYAround() shoould return a valid Vec3 with a new position', () => {
+    const pos1 = Vec3.rotateXYAround(Vec3.zero(), new Vec3(3, 0, 0), 45);
+    const pos2 = Vec3.rotateXYAround(Vec3.zero(), new Vec3(3, 0, 0), -90);
+
+    expect(pos1.x.toFixed(9)).toBe('2.121320344');
+    expect(pos1.y.toFixed(9)).toBe('2.121320344');
+    expect(pos1.z).toBe(0);
+
+    expect(pos2.x.toFixed(0)).toBe('0');
+    expect(pos2.y.toFixed(0)).toBe('-3');
+    expect(pos2.z).toBe(0);
+  });
 });

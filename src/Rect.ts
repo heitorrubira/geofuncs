@@ -30,38 +30,27 @@ export default class Rect {
    * The top position of the rectangle.
    */
   get top(): number {
-    return this.position.y - this.height / 2.0;
+    return this.position.y;
   }
   /**
    * The bottom position of the rectangle.
    */
   get bottom(): number {
-    return this.position.y + this.height / 2.0;
+    return this.position.y + this.height;
   }
   /**
    * The left position of the rectangle.
    */
   get left(): number {
-    return this.position.x - this.width / 2.0;
+    return this.position.x;
   }
   /**
    * The right position of the rectangle.
    */
   get right(): number {
-    return this.position.x + this.width / 2.0;
+    return this.position.x + this.width;
   }
-  /**
-   * The x position of the rectangle.
-   */
-  get x(): number {
-    return this.position.x;
-  }
-  /**
-   * The y position of the rectangle.
-   */
-  get y(): number {
-    return this.position.y;
-  }
+
   /**
    * The area of the rectangle.
    */

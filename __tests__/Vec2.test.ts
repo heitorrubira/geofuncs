@@ -44,4 +44,15 @@ describe('Vec2', () => {
     const result = Vec2.distance(Vec2.zero(), new Vec2(3, 4));
     expect(result).toBe(5);
   });
+
+  it('rotateAround() shoould return a valid Vec2 with a new position', () => {
+    const pos1 = Vec2.rotateAround(Vec2.zero(), new Vec2(3, 0), 45);
+    const pos2 = Vec2.rotateAround(Vec2.zero(), new Vec2(3, 0), -90);
+
+    expect(pos1.x.toFixed(9)).toBe('2.121320344');
+    expect(pos1.y.toFixed(9)).toBe('2.121320344');
+
+    expect(pos2.x.toFixed(0)).toBe('0');
+    expect(pos2.y.toFixed(0)).toBe('-3');
+  });
 });

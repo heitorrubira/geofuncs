@@ -1,4 +1,4 @@
-import { distanceVec3 } from './utils';
+import { distance3D, rotateXYAround3D } from './utils';
 
 /**
  * A 3D vector class
@@ -73,7 +73,18 @@ export default class Vec3 {
    * @returns
    */
   static distance(a: Vec3, b: Vec3): number {
-    return distanceVec3(a, b);
+    return distance3D(a, b);
+  }
+
+  /**
+   * Rotate a point around a center, returning a new Vec3 with the new position.
+   * @param center The center to rotate around
+   * @param point The point to rotate
+   * @param deg In degrees
+   * @returns
+   */
+  static rotateXYAround(center: Vec3, point: Vec3, deg: number): Vec3 {
+    return rotateXYAround3D(center, point, deg);
   }
 
   /**
