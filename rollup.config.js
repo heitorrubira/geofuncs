@@ -1,9 +1,11 @@
-import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import dts from 'rollup-plugin-dts';
 import terser from '@rollup/plugin-terser';
+import { globSync } from 'glob';
+import commonjs from 'rollup-plugin-commonjs';
+import copy from 'rollup-plugin-copy';
 import del from 'rollup-plugin-delete';
+import dts from 'rollup-plugin-dts';
+import resolve from 'rollup-plugin-node-resolve';
+import typescript from 'rollup-plugin-typescript2';
 
 export default [
   {
@@ -12,11 +14,12 @@ export default [
       {
         file: 'dist/bundle.cjs.js',
         format: 'cjs',
-        exports: 'named',
+        sourcemap: true,
       },
       {
         file: 'dist/bundle.esm.js',
         format: 'esm',
+        sourcemap: true,
       },
     ],
     plugins: [
@@ -35,10 +38,20 @@ export default [
   },
   {
     input: './dist/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'es' }],
+    output: [{ file: './dist/index.d.ts', format: 'es' }],
     plugins: [
       dts(),
-      del({ hook: 'buildEnd', targets: [ './dist/geometry', './dist/utils' ] })
+      del({
+        hook: 'buildEnd',
+        targets: [
+          './dist/geometry',
+          './dist/utils',
+          ...globSync('./dist/*.d.ts', { ignore: './dist/index.d.ts' }),
+        ],
+      }),
+      copy({
+        targets: [{ src: './package.json', dest: './dist' }],
+      }),
     ],
   },
 ];

@@ -1,6 +1,10 @@
 import Vec2 from '../Vec2';
-import { Limits } from '../types';
 import { clamp, toDegrees, toRadians } from './base';
+
+export type Limits = {
+  min: number;
+  max: number;
+};
 
 export const forwardKinematics = (
   L1: number,
