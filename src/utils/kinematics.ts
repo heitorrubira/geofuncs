@@ -1,4 +1,5 @@
 import Vec2 from '../Vec2';
+import { Limits } from '../types';
 import { clamp, toDegrees, toRadians } from './base';
 
 export const forwardKinematics = (
@@ -19,7 +20,9 @@ export const forwardKinematics = (
 export const inverseKinematics = (
   L1: number,
   L2: number,
-  pointTo: Vec2
+  pointTo: Vec2,
+  angleALimits?: Limits,
+  angleBLimits?: Limits
 ): { angleA: number; angleB: number } => {
   const deltaX = pointTo.x;
   const deltaY = pointTo.y;
@@ -63,13 +66,12 @@ export const inverseKinematics = (
     },
   ];
 
-  // TODO: this should be dynamicaly checked:
   const validCandidates = angleCandidates.filter((candidate) => {
     return (
-      candidate.angleA >= 0 &&
-      candidate.angleA <= 90 &&
-      candidate.angleB >= -150 &&
-      candidate.angleB <= 150
+      candidate.angleA >= (angleALimits?.min ?? -359) &&
+      candidate.angleA <= (angleALimits?.max ?? 359) &&
+      candidate.angleB >= (angleBLimits?.min ?? -359) &&
+      candidate.angleB <= (angleBLimits?.max ?? 359)
     );
   });
 
