@@ -1,4 +1,4 @@
-# Geofuncs
+# Geofuncs 1.0.0
 
 This library aims to assist in Web or Node.js development, where it is necessary to apply basic geometric shapes, verify collisions between them, and apply mathematical formulas.
 
@@ -37,6 +37,3 @@ Y
 **Vec3**: Point in three dimensions X, Y, and Z.
 **Box**: Cubic-shaped with min and max positions.
 **Sphere**: Spherical-shaped with center and radius.
-
-### Backlog:
-Under development...
